@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   def edit
   end
 
+
   # POST /posts
   # POST /posts.json
   def create
@@ -28,14 +29,23 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+
+        if params[:images]
+          # The magic is here ;)
+          params[:images].each { |image|
+            @post.attachments.create(image: image)
+          }
+        end
+
+        format.html { redirect_to @post, notice: 'Gallery was successfully created.' }
+        format.json { render json: @post, status: :created, location: @post }
       else
-        format.html { render :new }
+        format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
+
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json

@@ -63,6 +63,8 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     diff-lcs (1.2.5)
+    dropzonejs-rails (0.7.3)
+      rails (> 3.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -252,6 +254,7 @@ DEPENDENCIES
   better_errors
   bootstrap (~> 4.0.0.alpha3)
   coffee-rails (~> 4.1.0)
+  dropzonejs-rails
   foreman
   growl
   guard-bundler

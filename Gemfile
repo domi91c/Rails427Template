@@ -38,7 +38,6 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'meta_request'
   gem 'better_errors'
   gem 'foreman'
@@ -55,4 +54,5 @@ group :development do
 end
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', "~> 5.0.0"
+gem 'dropzonejs-rails'
