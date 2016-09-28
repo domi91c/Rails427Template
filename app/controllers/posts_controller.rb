@@ -27,17 +27,17 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
+    binding.pry
     respond_to do |format|
       if @post.save
 
         if params[:images]
-          # The magic is here ;)
           params[:images].each { |image|
             @post.attachments.create(image: image)
           }
         end
 
-        format.html { redirect_to @post, notice: 'Gallery was successfully created.' }
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
